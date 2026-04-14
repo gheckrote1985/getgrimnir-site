@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Grimnir Beta — Manufacturing Intelligence for Job Shops</title>
+<link rel="sitemap" href="/sitemap.xml" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1e3a5f;
+    --blue: #2d5986;
+    --teal: #00a896;
+    --teal-light: #e0f7f4;
+    --dark: #0d1f35;
+    --text: #1a1a2e;
+    --muted: #5a6a7a;
+    --light: #f0f4f8;
+    --white: #ffffff;
+    --border: #d0d8e4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    background: rgba(13, 31, 53, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-brand {
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+  .nav-brand span { color: var(--teal); }
+
+  .nav-back {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--white); }
+
+  /* MAIN */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  main::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(0,168,150,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .download-box {
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dl-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0,168,150,0.15);
+    border: 1px solid rgba(0,168,150,0.3);
+    color: var(--teal);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .dl-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--teal);
+  }
+
+  .dl-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--teal);
+    color: var(--dark);
+    padding: 1.1rem 2.5rem;
+    border-radius: 10px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s;
+    margin-bottom: 1rem;
+  }
+
+  .dl-btn:hover { transform: translateY(-2px); opacity: 0.92; }
+
+  .dl-btn svg {
+    width: 20px; height: 20px;
+    fill: var(--dark);
+    flex-shrink: 0;
+  }
+
+  .dl-meta {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 3rem;
+  }
+
+  /* STEPS */
+  .dl-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .dl-step {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 1.25rem 1rem;
+  }
+
+  .dl-step-num {
+    width: 28px; height: 28px;
+    background: var(--teal);
+    color: var(--dark);
+    border-radius: 50%;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .dl-step h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--white);
+    margin-bottom: 0.35rem;
+  }
+
+  .dl-step p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  /* TRUST */
+  .dl-trust {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .trust-item::before {
+    content: '✓';
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  /* HELP */
+  .dl-help {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .dl-help a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  .dl-help a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .dl-steps { grid-template-columns: repeat(2, 1fr); }
+    .dl-trust { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">Grim<span>nir</span></a>
+  <a href="/" class="nav-back">← Back to Home</a>
+</nav>
+
+<main>
+  <div class="download-box">
+    <div class="dl-badge">Beta v0.8.1 — Windows</div>
+    <h1>Start Your<br><em>30-Day Free Trial</em></h1>
+    <p class="dl-sub">No credit card. No cloud account. No IT project.<br>Runs locally on your machine — your data never leaves your building.</p>
+
+    <a href="/Grimnir_Beta_v0.8.1.zip" class="dl-btn" download onclick="console.log('zip_download')">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4h14v-2H5v2z"/></svg>
+      Download Grimnir Beta
+    </a>
+    <div class="dl-meta">Windows 10/11 &nbsp;·&nbsp; ~150 MB &nbsp;·&nbsp; No Python install required</div>
+
+    <div class="dl-steps">
+      <div class="dl-step">
+        <div class="dl-step-num">1</div>
+        <h3>Download ZIP</h3>
+        <p>Extract to any folder on your Windows machine.</p>
+      </div>
+      <div class="dl-step">
+        <div class="dl-step-num">2</div>
+        <h3>Launch Grimnir</h3>
+        <p>Double-click <code style="color:var(--teal);font-size:0.75rem;">launch_grimnir.bat</code>, then click <strong>Launch Grimnir</strong>.</p>
+      </div>
+      <div class="dl-step">
+        <div class="dl-step-num">3</div>
+        <h3>Accept the EULA</h3>
+        <p>Review and accept the beta terms. Your 30-day clock starts here.</p>
+      </div>
+      <div class="dl-step">
+        <div class="dl-step-num">4</div>
+        <h3>Connect your ERP</h3>
+        <p>Enter your ODBC DSN or ERP URL. Grimnir auto-detects your system.</p>
+      </div>
+    </div>
+
+    <div class="dl-trust">
+      <span class="trust-item">No credit card required</span>
+      <span class="trust-item">Data stays on your machine</span>
+      <span class="trust-item">Read-only ERP access</span>
+      <span class="trust-item">30-day full access</span>
+    </div>
+
+    <div class="dl-help">
+      Need help getting set up? &nbsp;<a href="https://calendly.com/gheckrote-jomplcc/30min" target="_blank">Book a free setup call</a> &nbsp;·&nbsp; Questions? <a href="mailto:hello@getgrimnir.com">hello@getgrimnir.com</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
