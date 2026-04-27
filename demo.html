@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Free Demo — Grimnir</title>
+<meta name="description" content="Request free demo access to Grimnir — manufacturing intelligence for job shops.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --teal: #00a896;
+    --dark: #0d1f35;
+    --navy: #1e3a5f;
+    --muted: rgba(255,255,255,0.55);
+    --border: rgba(255,255,255,0.12);
+    --input-bg: rgba(255,255,255,0.06);
+  }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .card {
+    width: 100%;
+    max-width: 520px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 44px 40px;
+  }
+  .back {
+    display: block;
+    margin-bottom: 28px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .back:hover { color: #fff; }
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .sub {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 32px;
+    line-height: 1.55;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 6px;
+  }
+  input, select {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  input::placeholder { color: rgba(255,255,255,0.3); }
+  select option { background: #0d1f35; color: #fff; }
+  input:focus, select:focus { border-color: var(--teal); }
+  .btn {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px;
+    background: var(--teal);
+    color: var(--dark);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.88; }
+  .trust {
+    margin-top: 20px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.6;
+  }
+  @media (max-width: 560px) {
+    .card { padding: 32px 22px; }
+    h1 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <a href="/" class="back">← Back to Grimnir</a>
+    <div class="eyebrow">Free Demo Access</div>
+    <h1>See Grimnir on your shop's data</h1>
+    <p class="sub">Tell us about your shop and we'll set up a personalized demo — usually within one business day.</p>
+
+    <form name="demo-request" method="POST" action="/success" netlify>
+      <input type="hidden" name="form-name" value="demo-request">
+      <!-- honeypot -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="form-group">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" placeholder="Gerald Heckrote" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Work email</label>
+        <input type="email" id="email" name="email" placeholder="gerald@yourshop.com" required>
+      </div>
+      <div class="form-group">
+        <label for="company">Company / shop name</label>
+        <input type="text" id="company" name="company" placeholder="JOMP Machine Works" required>
+      </div>
+      <div class="form-group">
+        <label for="erp">ERP system</label>
+        <select id="erp" name="erp" required>
+          <option value="" disabled selected>Select your ERP</option>
+          <option value="m1">M1 (ECi)</option>
+          <option value="jobboss2">JobBOSS² / E2</option>
+          <option value="epicor">Epicor</option>
+          <option value="erpnext">ERPNext</option>
+          <option value="other">Other</option>
+          <option value="none">No ERP / spreadsheets</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">Request Free Demo Access →</button>
+    </form>
+
+    <p class="trust">No credit card required &nbsp;·&nbsp; Your data stays on your machine &nbsp;·&nbsp; We'll reach out within 1 business day</p>
+  </div>
+</body>
+</html>
